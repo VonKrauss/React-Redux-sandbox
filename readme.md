@@ -23,3 +23,8 @@ Sublime Text plugins that will help you
 - **ESlint**: Great linter with react rules. Highly customizable.
 - **Babel**: For JSX color highlighting.
 - **Sass**: The project uses sass loaders that automatically compile sass with webpack updates.
+
+Indent style
+---------
+
+The project is indented using 2 space tabs. Consider it my way of vindicating tabs before spaces.

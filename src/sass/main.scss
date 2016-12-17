@@ -1,1 +1,11 @@
-main.scss
+$text-color: #f2e8d1;
+$background-color: #090805;
+$accent-color: #aa7b00;
+* {
+	box-sizing: border-box;
+}
+body {
+	color: $text-color;
+	background: $background-color;
+
+}

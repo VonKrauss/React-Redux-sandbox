@@ -1,0 +1,29 @@
+{
+  "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module",
+      "ecmaFeatures": {
+          "jsx": true,
+      }
+  },
+  "plugins": [
+    "react",
+  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "rules": {
+    "comma-dangle" : 0,
+    "react/no-unknown-property": ["warn", { "ignore": ["class"] }],
+    "no-console": "warn",
+    "no-unused-vars": "warn",
+  },
+  "env": {
+      "browser": true,
+      "es6": true,
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "0.14.8"
+    }
+  },
+}
