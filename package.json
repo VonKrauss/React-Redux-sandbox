@@ -59,7 +59,7 @@
 		"webpack-dev-server": "^1.16.2"
 	},
 	"scripts": {
-		"dev": "webpack-dev-server --colors --content-base src/ --inline --hot --open --public "
+		"dev": "webpack-dev-server --colors --content-base src/ --inline --hot --open"
 	},
   "repository": {
     "type": "git",
