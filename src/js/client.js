@@ -1,12 +1,11 @@
-import React from "react";
+import React from 'react';
 import ReactDOM from "react-dom";
-import { Router, Route, IndexRoute, hashHistory } from "react-router";
+import { Provider } from 'react-redux';
+require("!style!css!sass!../sass/main.scss");
 
-import Archives from "./pages/Archives";
-import Featured from "./pages/Featured";
-import Layout from "./pages/Layout";
-import Settings from "./pages/Settings";
-import Map from "./pages/Map";
+import configureRoutes from './routes';
+import { Router, browserHistory } from 'react-router'
+import ReactOnRails from 'react-on-rails';
 
 import routing from "./routes"
 const app = document.getElementById('app');

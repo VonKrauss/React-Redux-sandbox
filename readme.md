@@ -6,7 +6,7 @@ This is a barebones project designed to break things, or start them anew. It con
 Installation
 ---------
 
-This React project is built with [Node.js](https://nodejs.org) for dependency management and webpack dev server. If you don't have it, install it on your system (it's great).
+This React project is built with [Node.js](https://nodejs.org) for dependency management. If you don't have it, install it on your system (it's great).
 To get things started, you'll only need to open a console on the project's base folder and execute:
 ```node
 npm install
