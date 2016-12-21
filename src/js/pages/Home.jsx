@@ -20,8 +20,8 @@ export default class Home extends React.Component {
 				<span>State test</span>
 				<h3>{ this.state.counter }</h3>
 				<div class="counter">
-					<button onClick={ () => { this.updateCounter(1)  } } data-value="1">+1</button>
-					<button onClick={ () => { this.updateCounter(-1) } } data-value="-1">-1</button>
+					<button onClick={ () => { this.updateCounter(1)  } } >+1</button>
+					<button onClick={ () => { this.updateCounter(-1) } } >-1</button>
 				</div>
 			</div>
 		);
