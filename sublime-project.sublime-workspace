@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"backgrou",
+				"background-color"
+			],
+			[
 				"is",
 				"getInitialState\t Life Cycle"
 			],
@@ -32,7 +36,14 @@
 			"settings":
 			{
 				"buffer_size": 1189,
-				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 1970,
 				"line_ending": "Windows"
 			}
 		},
@@ -40,43 +51,76 @@
 			"file": "webpack.config.js",
 			"settings":
 			{
-				"buffer_size": 1592,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"buffer_size": 1718,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/index.html",
+			"file": "src/js/routes.jsx",
 			"settings":
 			{
-				"buffer_size": 636,
+				"buffer_size": 618,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "package.json",
-			"settings":
-			{
-				"buffer_size": 1963,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "src/js/client.js",
 			"settings":
 			{
-				"buffer_size": 359,
+				"buffer_size": 462,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": ".eslintrc",
+			"contents": "import { createStore } from 'redux'\n\nconst defaultState = {\n    heroes : {\n        comp : []\n    }\n}\n\nconst AppReducer = (state = defaultState, action) => {\n    switch(action.type) {\n        case 'STORE_HEROES_COMP':\n            const newState = state;\n            state.heroes.comp = action.data;\n            return newState;\n        default:\n            return state;\n    }\n}\n\nconst store = createStore(AppReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());\n\nexport default store;",
+			"file": "src/js/store.jsx",
+			"file_size": 539,
+			"file_write_time": 131265846665570827,
 			"settings":
 			{
-				"buffer_size": 493,
+				"buffer_size": 518,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "store.jsx"
+			}
+		},
+		{
+			"file": "src/js/components/Heroes.jsx",
+			"settings":
+			{
+				"buffer_size": 1255,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "import React from 'react'\n\nexport default class Home extends React.Component {\n\tconstructor() {\n\t\tsuper();\n\t\tthis.state = {\n\t\t\tcounter: 0\n\t\t};\n\t}\n\n\tupdateCounter(n) {\n\t\tthis.setState((prevState) => {\n\t\t\treturn { counter: prevState.counter + n }\n\t\t});\n\t}\n\n\trender() {\n\t\treturn (\n\t\t\t<div id=\"home\">\n\t\t\t\t<span>State test</span>\n\t\t\t\t<h3>{ this.state.counter }</h3>\n\t\t\t\t<div class=\"counter\">\n\t\t\t\t\t<button onClick={ () => { this.updateCounter(1)  } } >+1</button>\n\t\t\t\t\t<button onClick={ () => { this.updateCounter(-1) } } >-1</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t);\n\t}\n}",
+			"file": "src/js/pages/Home.jsx",
+			"file_size": 616,
+			"file_write_time": 131265876574635733,
+			"settings":
+			{
+				"buffer_size": 559,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/components/Loader.jsx",
+			"settings":
+			{
+				"buffer_size": 143,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/components/Header.jsx",
+			"settings":
+			{
+				"buffer_size": 371,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -85,38 +129,16 @@
 			"file": "src/sass/main.scss",
 			"settings":
 			{
-				"buffer_size": 167,
+				"buffer_size": 1677,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/js/routes.jsx",
+			"file": "src/js/pages/Competitive.jsx",
 			"settings":
 			{
-				"buffer_size": 354,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/components/Layout.jsx",
-			"settings":
-			{
-				"buffer_size": 240,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "Layout"
-			}
-		},
-		{
-			"contents": "export default class Layout extends React.Component {\n\trender() {\n\t\treturn (\n\t\t\t<div id=\"home\">\n\t\t\t\t<\n\t\t\t</div>\n\t\t);\n\t}\n}",
-			"file": "src/js/pages/Home.jsx",
-			"file_size": 0,
-			"file_write_time": 131265612823571809,
-			"settings":
-			{
-				"buffer_size": 121,
+				"buffer_size": 224,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -134,24 +156,68 @@
 		"selected_items":
 		[
 			[
-				"reinde",
-				"Indentation: Reindent Lines"
+				"conver",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
 			],
 			[
 				"tabs",
 				"Indentation: Convert to Tabs"
 			],
 			[
-				"json",
-				"Set Syntax: JSON"
+				"reint",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"instlal",
+				"Package Control: Install Package"
+			],
+			[
+				"esl",
+				"ESLint"
+			],
+			[
+				"babel in",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"babel",
+				"Babel Transform"
+			],
+			[
+				"jsx",
+				"Set Syntax: JSX"
+			],
+			[
+				"toggle ",
+				"Toggle Comment"
+			],
+			[
+				"eslint",
+				"SublimeLinter: Choose Lint Mode"
+			],
+			[
+				"eslin",
+				"ESLint"
+			],
+			[
+				"reinden",
+				"Indentation: Reindent Lines"
 			],
 			[
 				"rein",
 				"Indentation: Reindent Lines"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
 			],
 			[
 				"indent",
@@ -160,10 +226,6 @@
 			[
 				"convert to ",
 				"Indentation: Convert to Tabs"
-			],
-			[
-				"jsx",
-				"Set Syntax: JSX"
 			],
 			[
 				"theme",
@@ -269,20 +331,32 @@
 	"expanded_folders":
 	[
 		"/C/www/React Sandbox",
+		"/C/www/React Sandbox/node_modules/i",
+		"/C/www/React Sandbox/node_modules/ignore",
 		"/C/www/React Sandbox/src",
-		"/C/www/React Sandbox/src/img",
 		"/C/www/React Sandbox/src/js",
-		"/C/www/React Sandbox/src/js/components",
-		"/C/www/React Sandbox/src/js/pages"
+		"/C/www/React Sandbox/src/js/components"
 	],
 	"file_history":
 	[
-		"/C/www/React Sandbox/webpack.config.js",
-		"/C/www/React Sandbox/.eslintrc",
-		"/C/www/React Sandbox/src/js/client.js",
-		"/C/www/React Sandbox/src/js/routes.jsx",
-		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
+		"/C/www/react-map-demo/src/js/client.js",
 		"/C/www/React Sandbox/src/sass/main.scss",
+		"/C/www/React Sandbox/src/js/components/Layout.jsx",
+		"/C/www/React Sandbox/src/index.html",
+		"/C/www/React Sandbox/src/js/pages/Competitive.jsx",
+		"/C/www/React Sandbox/src/js/pages/Test.jsx",
+		"/C/www/React Sandbox/src/js/client.js",
+		"/C/www/React Sandbox/node_modules/faye-websocket/examples/client.js",
+		"/C/www/React Sandbox/src/js/test.js",
+		"/C/www/React Sandbox/build/client-bundle.js",
+		"/C/www/React Sandbox/webpack.config.js",
+		"/C/www/React Sandbox/package.json",
+		"/C/www/React Sandbox/src/js/pages/Home.jsx",
+		"/C/www/React Sandbox/src/js/routes.jsx",
+		"/C/www/React Sandbox/.eslintrc",
+		"/C/www/React Sandbox/src/client.min.js",
+		"/C/www/React Sandbox/sublime-project.sublime-project",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
 		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
 		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/Default.sublime-keymap",
 		"/C/www/React Sandbox/src/js/pages/Layout.js",
@@ -330,6 +404,22 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"AppStore",
+			"box-color",
+			"div",
+			"span",
+			"header",
+			"Competititve",
+			"Test",
+			"dev",
+			"([\n",
+			"\"\n",
+			"node",
+			"trans",
+			".js",
+			"resolve",
+			"build",
+			"import React",
 			"Home",
 			"extract",
 			"title",
@@ -352,7 +442,7 @@
 	"groups":
 	[
 		{
-			"selected": 9,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -374,7 +464,7 @@
 						],
 						"settings":
 						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Palenight.tmTheme",
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
@@ -385,69 +475,67 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "webpack.config.js",
+					"file": "package.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1592,
+						"buffer_size": 1970,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								413,
-								413
+								1590,
+								1590
 							]
 						],
 						"settings":
 						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Palenight.tmTheme",
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/Materialize/Langs/npm JSON.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 528.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/index.html",
+					"file": "webpack.config.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 636,
+						"buffer_size": 1718,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								349,
-								349
+								473,
+								476
 							]
 						],
 						"settings":
 						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Palenight.tmTheme",
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -458,36 +546,34 @@
 				},
 				{
 					"buffer": 3,
-					"file": "package.json",
+					"file": "src/js/routes.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1963,
+						"buffer_size": 618,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1820,
-								1820
+								594,
+								594
 							]
 						],
 						"settings":
 						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Palenight.tmTheme",
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/Materialize/Langs/npm JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JSX/JSX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 456.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -496,58 +582,186 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 359,
+						"buffer_size": 462,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								327,
-								327
+								347,
+								359
 							]
 						],
 						"settings":
 						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Palenight.tmTheme",
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
-							"tab_size": 2
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": ".eslintrc",
+					"file": "src/js/store.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 493,
+						"buffer_size": 518,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								370,
-								370
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"auto_name": "store.jsx",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Palenight.tmTheme",
+							"incomplete_sync": null,
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/js/components/Heroes.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1255,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								520,
+								520
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Palenight.tmTheme",
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 2,
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 132.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/js/pages/Home.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 559,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								516,
+								516
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JSX/JSX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/js/components/Loader.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 143,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								133,
+								133
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Palenight.tmTheme",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JSX/JSX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/js/components/Header.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 371,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								337,
+								337
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Palenight.tmTheme",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JSX/JSX.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -558,131 +772,68 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 10,
 					"file": "src/sass/main.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 167,
+						"buffer_size": 1677,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								167,
-								167
+								1672,
+								1672
 							]
 						],
 						"settings":
 						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Palenight.tmTheme",
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
-							"tab_size": 2
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1323.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "src/js/routes.jsx",
+					"buffer": 11,
+					"file": "src/js/pages/Competitive.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 354,
+						"buffer_size": 224,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								108,
-								108
+								127,
+								127
 							]
 						],
 						"settings":
 						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Palenight.tmTheme",
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JSX/JSX.tmLanguage",
-							"tab_size": 2
+							"syntax": "Packages/JSX/JSX.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "src/js/components/Layout.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 240,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								240
-							]
-						],
-						"settings":
-						{
-							"auto_name": "Layout",
-							"incomplete_sync": null,
-							"syntax": "Packages/JSX/JSX.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "src/js/pages/Home.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 121,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								101,
-								101
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"syntax": "Packages/JSX/JSX.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -690,7 +841,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 29.0
+		"height": 32.0
 	},
 	"input":
 	{
@@ -719,6 +870,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 146.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
@@ -731,7 +886,7 @@
 	"project": "sublime-project.sublime-project",
 	"replace":
 	{
-		"height": 54.0
+		"height": 60.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -740,6 +895,22 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"home",
+				"src\\js\\pages\\Home.jsx"
+			],
+			[
+				"competiti",
+				"src\\js\\pages\\Competitive.jsx"
+			],
+			[
+				"client.",
+				"src\\js\\client.js"
+			],
+			[
+				"webpack",
+				"webpack.config.js"
+			]
 		],
 		"width": 0.0
 	},
@@ -773,7 +944,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 357.0,
+	"side_bar_width": 320.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -91,3 +91,18 @@ h3 {
 }
 .inline { display: inline-block; vertical-align: top; }
 .v-middle { vertical-align: middle }
+
+button {
+	color: $border-color;
+	background: $accent-color;
+	border: 1px solid $border-color;
+	margin: 5px;
+	border-radius: 5px;
+	padding: 10px;
+	cursor: pointer;
+}
+.counter {
+	button {
+		width: 40px;
+	}
+}

@@ -8,6 +8,10 @@ import { Router, browserHistory } from 'react-router'
 import ReactOnRails from 'react-on-rails';
 
 import routing from "./routes"
+
+import store from "./store";
+ReactOnRails.registerStore({ store });
+
 const app = document.getElementById('app');
 
 ReactDOM.render(routing, app);

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import Loader from './Loader'
+import store from '../store'
 
 export default class Heroes extends React.Component {
 	constructor() {
@@ -13,10 +14,12 @@ export default class Heroes extends React.Component {
 	getData() {
 		$.get( "https://api.lootbox.eu/pc/eu/necKros-21595/competitive/heroes", (data) => {
 		  $( ".result" ).html( data );
-		  console.log( "OW API ---- Respone was received ----" );
+		  console.log( "OW API ---- Response was received ----" );
+		  data = JSON.parse(data);
 		  this.setState(
-		  	{ data : JSON.parse(data) }
+		  	{ data : data }
 		  );
+		  store.dispatch({ type: 'STORE_HEROES_COMP', data: data});
 		});
 	}
 	render() {
@@ -32,7 +35,6 @@ export default class Heroes extends React.Component {
 								<h3>{ hero.name }</h3>
 								<span class="faded"><strong>Playtime: </strong>{ hero.playtime }</span>
 							</div>
-
 						</article>
 					</div>
 				);
