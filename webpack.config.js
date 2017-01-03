@@ -12,7 +12,6 @@ module.exports = {
 	devtool: debug ? "inline-sourcemap" : null,
 	entry: "./js/client.js",
 	plugins: [
-	extractSCSS,
 	new webpack.ProvidePlugin({
 		_: 'lodash',
 		$: 'jquery',
@@ -27,12 +26,13 @@ module.exports = {
 			NODE_ENV: JSON.stringify(nodeEnv),
 		},
 	}),
+	extractSCSS,
 	],
 	module: {
 		loaders: [
 		{ test: require.resolve('jquery'), loader: 'expose?$!expose?jQuery' },
 		{ test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
-		{ test: /\.scss$/i, loader: extractSCSS.extract(['css','sass','scss']) },
+		{ test: /\.scss$/i, loader: extractSCSS.extract('css!sass') },
 		{ test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff' },
 		{ test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' },
 		{ test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },

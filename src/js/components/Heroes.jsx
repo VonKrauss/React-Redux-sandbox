@@ -13,13 +13,13 @@ export default class Heroes extends React.Component {
 	}
 	getData() {
 		$.get( "https://api.lootbox.eu/pc/eu/necKros-21595/competitive/heroes", (data) => {
-		  $( ".result" ).html( data );
-		  console.log( "OW API ---- Response was received ----" );
-		  data = JSON.parse(data);
-		  this.setState(
-		  	{ data : data }
-		  );
-		  store.dispatch({ type: 'STORE_HEROES_COMP', data: data});
+			$( ".result" ).html( data );
+			console.log( "OW API ---- Response was received ----" );
+			data = JSON.parse(data);
+			this.setState(
+				{ data : data }
+			);
+			store.dispatch({ type: 'STORE_HEROES_COMP', data: data});
 		});
 	}
 	render() {
