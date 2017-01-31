@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './header'
-import GlobalState from '../GlobalState'
+import GS from '../GlobalState'
 
 export default class Layout extends React.Component {
 	render() {
@@ -8,7 +8,7 @@ export default class Layout extends React.Component {
 			<div class="page">
 			<Header />
 			<section class="page-content">
-				{ GlobalState.data }
+				{ GS.data }
 				{ this.props.children }
 			</section>
 			</div>

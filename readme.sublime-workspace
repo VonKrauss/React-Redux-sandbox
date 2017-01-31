@@ -1,0 +1,463 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"backgrou",
+				"background-color"
+			],
+			[
+				"is",
+				"getInitialState\t Life Cycle"
+			],
+			[
+				"react",
+				"React.PropTypes.func"
+			],
+			[
+				"class",
+				"createClass()\tReact"
+			],
+			[
+				"const",
+				"constructor\tReact.Component"
+			],
+			[
+				"inline",
+				"inline-block"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"conver",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"reint",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"instlal",
+				"Package Control: Install Package"
+			],
+			[
+				"esl",
+				"ESLint"
+			],
+			[
+				"babel in",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"babel",
+				"Babel Transform"
+			],
+			[
+				"jsx",
+				"Set Syntax: JSX"
+			],
+			[
+				"toggle ",
+				"Toggle Comment"
+			],
+			[
+				"eslint",
+				"SublimeLinter: Choose Lint Mode"
+			],
+			[
+				"eslin",
+				"ESLint"
+			],
+			[
+				"reinden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"convert to ",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"theme",
+				"Material Theme: Configuration"
+			],
+			[
+				"INSTALL",
+				"Package Control: Install Package"
+			],
+			[
+				"jsc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"material",
+				"Material Theme: Info"
+			],
+			[
+				"new component",
+				"Snippet: React: wrap in a component"
+			],
+			[
+				"component",
+				"Snippet: Component Did Mount"
+			],
+			[
+				"default",
+				"Snippet: Default Props"
+			],
+			[
+				"default ",
+				"Snippet: Default Props"
+			],
+			[
+				"syntax",
+				"Set Syntax: Procfile"
+			],
+			[
+				"add fold",
+				"Project: Add Folder"
+			],
+			[
+				"folder",
+				"Project: Add Folder"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"package ",
+				"Install Package Control"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"",
+				"Package Control: Discover Packages"
+			],
+			[
+				"pa",
+				"Project: Add Folder"
+			],
+			[
+				"packag",
+				"Package Control: Add Channel"
+			],
+			[
+				"add",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Add Channel"
+			]
+		],
+		"width": 446.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/www/React Sandbox/src/js/pages/Test.jsx",
+		"/C/www/React Sandbox/src/js/pages/Competitive.jsx",
+		"/C/www/React Sandbox/src/sass/main.scss",
+		"/C/www/React Sandbox/src/js/components/Header.jsx",
+		"/C/www/React Sandbox/src/js/pages/Home.jsx",
+		"/C/www/React Sandbox/src/index.html",
+		"/C/www/React Sandbox/.babelrc",
+		"/C/www/React Sandbox/package.json",
+		"/C/www/React Sandbox/src/js/GlobalState.jsx",
+		"/C/www/React Sandbox/src/js/components/Layout.jsx",
+		"/C/www/React Sandbox/src/js/components/Heroes.jsx",
+		"/C/www/React Sandbox/src/js/store.jsx",
+		"/C/www/React Sandbox/src/js/routes.jsx",
+		"/C/www/React Sandbox/src/js/components/MiniContainer.jsx",
+		"/C/www/React Sandbox/node_modules/array-index/test.js",
+		"/C/www/React Sandbox/readme.md",
+		"/C/www/React Sandbox/webpack.config.js",
+		"/C/www/React Sandbox/src/js/client.js",
+		"/C/www/react-map-demo/src/js/client.js",
+		"/C/www/React Sandbox/node_modules/faye-websocket/examples/client.js",
+		"/C/www/React Sandbox/src/js/test.js",
+		"/C/www/React Sandbox/build/client-bundle.js",
+		"/C/www/React Sandbox/.eslintrc",
+		"/C/www/React Sandbox/src/client.min.js",
+		"/C/www/React Sandbox/sublime-project.sublime-project",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/Default.sublime-keymap",
+		"/C/www/React Sandbox/src/js/pages/Layout.js",
+		"/C/www/ShelterGenCat/client/App/constants/Constants.jsx",
+		"/C/www/ShelterGenCat/client/App/reducers/index.jsx",
+		"/C/inetpub/wwwroot/index.php",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/Terminal/Terminal.sublime-settings",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/Terminal/Default (Windows).sublime-keymap",
+		"/C/www/react/react-js-tutorials-master/2-react-router/src/js/pages/Archives.js",
+		"/C/www/react/react-js-tutorials-master/2-react-router/src/js/pages/Map.js",
+		"/C/www/react/react-js-tutorials-master/2-react-router/src/js/client.js",
+		"/C/www/react/react-js-tutorials-master/2-react-router/src/js/components/leaflet/MapLayer.js",
+		"/C/www/react/react-js-tutorials-master/2-react-router/src/js/components/Article.js",
+		"/C/www/react/react-js-tutorials-master/2-react-router/src/js/components/layout/Nav.js",
+		"/C/www/react/react-js-tutorials-master/2-react-router/src/js/pages/Featured.js",
+		"/C/Users/Krauss/Desktop/react-js-tutorials-master/1-basic-react/src/js/client.js",
+		"/C/Users/Krauss/Desktop/react-js-tutorials-master/1-basic-react/src/js/components/Layout.js",
+		"/C/Users/Krauss/Desktop/react-js-tutorials-master/1-basic-react/src/js/components/Footer.js",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/Babel/Babel.sublime-settings",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/User/Babel.sublime-settings",
+		"/C/Users/Krauss/Dropbox/Game Dev/Game Making/Games/DEBRIS/DEBRIS.gmx/DEBRIS.project.gmx",
+		"/C/Users/Krauss/KSP 1.0.5.dev/GameData/Nekku/Parts/minisquad/cupola/model.mu",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/SFTP/SFTP.sublime-settings",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/User/sftp_servers/404",
+		"/C/Users/Krauss/Desktop/marchante web/img/misc-4.png",
+		"/C/Users/Krauss/Desktop/marchante web/index.html",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/SFTP/Default (Windows).sublime-keymap",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/User/SFTP.sublime-settings",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings"
+	],
+	"find":
+	{
+		"height": 48.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"AppStore",
+			"box-color",
+			"div",
+			"span",
+			"header",
+			"Competititve",
+			"Test",
+			"dev",
+			"([\n",
+			"\"\n",
+			"node",
+			"trans",
+			".js",
+			"resolve",
+			"build",
+			"import React",
+			"Home",
+			"extract",
+			"title",
+			"Component",
+			";\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 100.0
+	},
+	"pinned_build_system": "",
+	"project": "readme.sublime-project",
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"miniconta",
+				"src\\js\\components\\MiniContainer.jsx"
+			],
+			[
+				"layout",
+				"src\\js\\components\\Layout.jsx"
+			],
+			[
+				"testjsx",
+				"src\\js\\pages\\Test.jsx"
+			],
+			[
+				"test",
+				"node_modules\\array-index\\test.js"
+			],
+			[
+				"store",
+				"src\\js\\store.jsx"
+			],
+			[
+				"home",
+				"src\\js\\pages\\Home.jsx"
+			],
+			[
+				"competiti",
+				"src\\js\\pages\\Competitive.jsx"
+			],
+			[
+				"client.",
+				"src\\js\\client.js"
+			],
+			[
+				"webpack",
+				"webpack.config.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\www\\React Sandbox\\sublime-project.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 320.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
