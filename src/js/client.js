@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
-require("!style!css!sass!../sass/main.scss");
+require("../sass/main.scss");
 
 import configureRoutes from './routes';
 import { Router, browserHistory } from 'react-router'
