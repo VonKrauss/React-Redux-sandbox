@@ -28,6 +28,9 @@ module.exports = {
 	}),
 	extractSCSS,
 	],
+	node: {
+  	fs: "empty"
+	},
 	module: {
 		loaders: [
 		{ test: require.resolve('jquery'), loader: 'expose?$!expose?jQuery' },

@@ -8,11 +8,13 @@
     "babel-plugin-react-html-attrs": "^2.0.0",
     "bootstrap-sass": "^3.3.7",
     "extract-text-webpack-plugin": "^1.0.1",
+    "fs": "0.0.1-security",
     "history": "^4.4.0",
     "immutable": "^3.8.1",
     "jquery": "^3.1.1",
     "lodash": "^4.17.0",
     "mysql": "2.13.0",
+    "net": "1.0.2",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.6",
     "react-dom": "^15.3.2",
@@ -23,6 +25,9 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
+    "restify": "4.3.0",
+    "scss": "0.2.4",
+    "tls": "0.0.1",
     "webpack": "^1.13.3"
   },
   "devDependencies": {
@@ -60,7 +65,8 @@
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "dev": "webpack-dev-server --colors --content-base src/ --inline --hot --open"
+    "dev": "webpack-dev-server --colors --content-base src/ --inline --hot --open",
+    "api": "node src/api/index.js"
   },
   "repository": {
     "type": "git",

@@ -8,6 +8,7 @@ export default class Header extends React.Component {
 				<nav id="main_menu">
 					<Link to="/">Home</Link>
 					<Link to="/competitive">Competitive</Link>
+					<Link to="/heroes">Heroes</Link>
 					<Link to="/test">Test</Link>
 				</nav>
 			</header>
