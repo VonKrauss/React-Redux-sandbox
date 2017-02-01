@@ -10,6 +10,60 @@ const config = {
   database: 'overattached'
 }
 /*
+  CREATE PLAYER
+*/
+const createPlayer = (res, username)=>{
+  var connection = mysql.createConnection(config);
+  connection.connect();
+  // CHECK IF USER EXISTS IN OUR DB
+  var query = connection.query('select * from users where username = ?',username, (err, result)=>{
+    if(err) {
+      console.error(err);
+      connection.end();
+      return;
+    }
+    if(result.length != 0) {
+        res.send({ error : {code: 200, message: "This user already exists"}});
+        connection.end();
+        return;
+    }
+    // CHECK IF USER EXISTS IN OW API
+    var client = restify.createJsonClient({
+      url: 'https://api.lootbox.eu',
+      version: '*'
+    });
+    console.log("--Calling OW Api...");
+    var count = setInterval(()=>{ console.log("...")},3000);
+    client.get('/pc/eu/'+username+'/profile', function(err, req, res2, obj) {
+      clearInterval(count);
+      console.log("--Data received.");
+      if(obj) {
+        if(obj.statusCode == 404) {
+          res.send({ error : {code: 404, message: "This battletag doesn't exist. Remember battletags are case sensitive."}});
+          connection.end();
+          return;
+        }
+        // INSERT USER
+        var user = {
+          username: username,
+          games: obj.data.games.competitive.played,
+          wins: obj.data.games.competitive.wins
+        }
+        var query = connection.query('insert into users set ?', user, (err, result)=>{
+          if(err) {
+            console.error(err);
+            connection.end();
+            return;
+          }
+          res.send({ message : "User "+username+" successfully created"});
+          connection.end();
+          return;
+        });
+      }
+    });
+  });
+}
+/*
   UPDATE PLAYER
 */
 const updatePlayer = (res, username)=>{
@@ -18,9 +72,17 @@ const updatePlayer = (res, username)=>{
   var query = connection.query('select games, wins from users where username = ?',username, (err, result)=>{
     if(err) {
       console.error(err);
+      connection.end();
       return;
     }
     if(result != 'undefined') {
+      // if there's no register for this user, try to create new one
+      if(result.length == 0) {
+        res.send({ error : {code: 404, message: "This user doesn't exist"}});
+        connection.end();
+        return;
+      }
+      console.log(result);
       var games = result[0].games;
       var wins  = result[0].wins;
       var client = restify.createJsonClient({
@@ -86,7 +148,8 @@ const getUpdates = (res, username, limit)=>{
   var query = connection.query('select * from updates where username = ? order by date desc limit ?',[username,limit], (err, result)=>{
     if(err) {
       console.error(err);
-      res.send({message: err})
+      res.send({message: err});
+      connection.end();
       return;
     }
     res.send(
@@ -124,6 +187,11 @@ server.get('/games/:username/', function (req, res, next) {
     var limit = 3;
   }
   var data = getUpdates(res, req.params.username, parseInt(limit));
+  return next();
+});
+
+server.get('/create/:username/', function (req, res, next) {
+  var data = createPlayer(res, req.params.username);
   return next();
 });
  
