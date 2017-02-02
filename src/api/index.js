@@ -40,7 +40,7 @@ const updatePlayer = (res, username)=>{
             // Make update object
             var update = {
               username : username,
-              sr       : obj.data.competitive.rank,
+              sr       : parseInt(obj.data.competitive.rank),
               games    : totalGames - games,
               wins     : totalWins - wins,
               date     : Math.ceil(+ new Date()/1000) // unix timestamp (seconds)

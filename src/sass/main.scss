@@ -106,3 +106,30 @@ button {
 		width: 40px;
 	}
 }
+i {
+	&.update_btn {
+		margin-left: 5px;
+		cursor: pointer;
+		display: inline-block;
+		width: 17px;
+		height: 17px;
+		background: url('/img/reload.svg') no-repeat center center;
+		background-size: 17px 17px;
+		vertical-align: middle;
+		&.loading {
+			opacity: .5;
+			cursor: default;
+			animation-name: spin;
+	    animation-duration: 2000ms;
+	    animation-iteration-count: infinite;
+	    animation-timing-function: linear;
+		}
+	}
+}
+@keyframes spin { 
+    from { 
+        transform: rotate(0deg); 
+    } to { 
+        transform: rotate(-360deg); 
+    }
+}
