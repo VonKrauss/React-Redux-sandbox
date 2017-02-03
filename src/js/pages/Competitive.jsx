@@ -20,7 +20,7 @@ export default class Competitive extends React.Component {
     this.user = 'necKros-21595';
     $.get('http://localhost:5959/games/'+this.user+'?limit=3',(data)=>{
       this.setState((prevState)=>{
-        return {...prevState, updates: data.updates, loading: false};
+        return {...prevState, updates: data.updates.reverse(), loading: false};
       });
     });
   }
