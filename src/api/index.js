@@ -47,7 +47,8 @@ const createPlayer = (res, username)=>{
         var user = {
           username: username,
           games: obj.data.games.competitive.played,
-          wins: obj.data.games.competitive.wins
+          wins: obj.data.games.competitive.wins,
+          avatar: obj.data.avatar,
         }
         var query = connection.query('insert into users set ?', user, (err, result)=>{
           if(err) {
@@ -98,6 +99,7 @@ const updatePlayer = (res, username)=>{
           // Check if there's new games
           var totalGames = obj.data.games.competitive.played;
           var totalWins = obj.data.games.competitive.wins;
+          var avatar = obj.data.avatar;
           if(totalGames > games) {
             // Make update object
             var update = {
@@ -109,7 +111,7 @@ const updatePlayer = (res, username)=>{
             }
             console.log(update);
             // Update to users ()
-            connection.query('UPDATE users SET games = ?, wins = ? WHERE username = ?', [totalGames, totalWins, username], (err)=>{
+            connection.query('UPDATE users SET games = ?, wins = ?, avatar = ? WHERE username = ?', [totalGames, totalWins, avatar, username], (err)=>{
               if(err){
                 res.send(err);
                 connection.end();
@@ -123,16 +125,27 @@ const updatePlayer = (res, username)=>{
                   return;
                 }
                 success = "Successfully updated database";
+                console.log(obj.data.avatar);
                 res.send({
                   message: success,
                   update: update
                 });
                 console.log(success);
+                connection.end();
               })
             });
           } else {
             // Answer with 'no updates needed'
-            res.send({message: "No updates needed"});
+            connection.query('UPDATE users SET avatar = ? WHERE username = ?',[avatar, username], (err)=>{
+              if(err) {
+                res.send(err);
+                connection.end();
+                return;
+              }
+              res.send({message: "No updates needed", player: {username: username, avatar: avatar}});
+              connection.end();
+              return;
+            });
           }
         }
       });
@@ -152,14 +165,22 @@ const getUpdates = (res, username, limit)=>{
       connection.end();
       return;
     }
-    res.send(
-      { 
-        updates: result,
-        updatesCount: result.length
+    var query = connection.query('select * from users where username = ?', username, (err, result2)=>{
+      if(err) {
+        console.error(err);
+        res.send({message: err});
+        connection.end();
+        return;
       }
-    );
+      res.send(
+        { 
+          updates: result,
+          player: result2[0]
+        }
+      );
+      connection.end();
+    });
   });
-  connection.end();
 }
 ////////////////////////
 // RESTIFY

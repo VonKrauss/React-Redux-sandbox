@@ -1,0 +1,223 @@
+$text-color: #6b717b;
+$text-clear: #c3c7ce;
+$faded-color: #3d4452;
+$background-color: #1d284b;
+$accent-color: #d3203a;
+$border-color: #2b261c;
+$box-color: #13171f;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,900,900i');
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: $background-color url('/img/background-dva.jpg') no-repeat center center;
+  background-size: cover;
+  color: $text-color;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 300;
+}
+
+a {
+  color: $accent-color;
+}
+
+h1,h2,h3 {
+  margin: 0;
+}
+
+.box {
+  background: $box-color;
+}
+
+#app, #page, #main_container {
+  // height: 100%;
+}
+
+#top_header {
+  width: 675px;
+  height: 70px;
+  margin: 0 auto;
+  background: $box-color;
+  position: relative;
+  z-index: 1;
+}
+
+#main_container {
+  padding-top: 70px;
+  width: 640px;
+  background: #0b0e13 url('/img/background-main_container.png');
+  margin: 0 auto;
+  position: relative;
+  top: -70px;
+  z-index: 0;
+  padding-bottom: 40px;
+}
+
+#page_logo {
+  width: 100px;
+  height: 48px;
+  background: url('/img/header-logo.png') no-repeat center left;
+  margin-top: 12px;
+  margin-left: 30px;
+  margin-right: 45px;
+  background-size: 100px;
+}
+
+#main_menu {
+  vertical-align: top;
+  margin-top: 26px;
+  li a {
+    font-size: 17px;
+    font-weight: 300;
+    color: $text-color;
+    text-decoration: none;
+    letter-spacing: -.5px;
+    &.active {
+      color: $accent-color;
+      text-shadow: 0 0 6px $accent-color;
+    }
+  }
+}
+#player_header {
+  text-align: center;
+  padding: 20px;
+}
+.player-avatar {
+  display: block;
+  width:  84px;
+  height: 84px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  background: $box-color no-repeat center center;
+  background-size: cover;
+  margin: 0 auto;
+  margin-bottom: 14px;
+}
+
+.player_name {
+  font-size: 16px;
+  color: $text-clear;
+  strong { font-weight: 600 } 
+  .faded { font-weight: 400; color: $text-color }
+}
+
+.sr-counter {
+    font-size: 64px;
+    font-weight: 100;
+    color: #eee;
+    text-shadow: 12px 12px 0 #000, 0 0 20px #fff;
+    margin-bottom: 14px;
+}
+
+.update-btn {
+    display: block;
+    background: $box-color;
+    padding: 5px 9px;
+    width: 130px;
+    text-align: left;
+    border: 0px;
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    margin: 0 auto;
+    position: relative;
+    &:hover {
+      color: lighten($text-color, 10%);
+      background-color: lighten($box-color, 2%);
+    }
+    &:focus {
+      outline: none;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      background: url('/img/reload.svg');
+      top: 7px;
+      right: 7px;
+    }
+    &.loading {
+      cursor: default;
+      color: $faded-color;
+      background: $box-color;
+      &::after {
+        animation-name: spin;
+        animation-duration: 1100ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+    }
+}
+
+@keyframes spin { 
+    from { 
+        transform: rotate(0deg); 
+    } to { 
+        transform: rotate(360deg); 
+    }
+}
+
+#player_summary {
+  overflow: auto;
+  .col {
+    width: 33.333%;
+    float: left;
+    padding-right: 2px;
+    &:last-child {
+      padding-right: 0;
+    }
+    .box { padding: 7px 12px }
+  }
+}
+
+#player_updates {
+  padding: 5px;
+  &>div {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+  }
+}
+
+.sr-counter {
+  &.bronze {
+    color: #934832;
+  }
+  &.silver {
+    color: #868f90;
+  }
+  &.gold {
+    color: #de9021;
+    text-shadow: 0 0 10px transparentize(#de9021, .18);
+  }
+  &.platinum {
+    color: #dcdcdc;
+    text-shadow: 0 0 10px transparentize(#fff, .18);
+  }
+  &.diamond {
+    color: #53ddff;
+    text-shadow: 0 0 10px transparentize(#fff, .18);
+  }
+  &.master {
+    color: #ffc30e;
+    text-shadow: 0 0 10px transparentize(#fff, .18);
+  }
+  &.grandmaster {
+    color: #ffdd74;
+    text-shadow: 0 0 10px transparentize(#fff, .18);
+    background: url('/img/grandmaster-glow.png') no-repeat center center;
+  }
+}
+#player_graph {
+  padding-top: 2px;
+}

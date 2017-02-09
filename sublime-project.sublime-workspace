@@ -31,35 +31,6 @@
 	},
 	"buffers":
 	[
-		{
-			"contents": "import React from 'react'\nimport Heroes from '../components/Heroes'\n\n/*\n  - get updates from db\n  - get data from api\n  if there's new data to add:\n    - put update in db\n    - put update in state\n*/\n\nexport default class Competitive extends React.Component {\n  \n  constructor() {\n    super();\n    this.state = {\n      updates: [],\n      loading: true\n    };\n    this.user = 'necKros-21595';\n    $.get('http://localhost:5959/games/'+this.user+'?limit=3',(data)=>{\n      this.setState((prevState)=>{\n        return(...prevState, updates: data.updates);\n      });\n    });\n  }\n  toggleLoading() {\n    this.setState((prevState)=>{\n      return(...prevState,loading: !prevState.loading);\n    })\n  }\n  update() {\n      if(!this.state.loading) {\n      console.info(\"Starting update...\")\n      this.loading = true;\n      $.get('http://localhost:5959/update/'+this.user, (data)=>{\n        this.loading = false;\n    });\n    }\n  }\n\trender() {\n    // UPDATE BTN\n    var loading = this.loading ? \"loading\" : \"\";\n    var updateBtn = <i class={ \"update_btn \" + loading } onClick={ this.update.bind(this) }></i>\n    // LAST UPDATE\n    var lastUpdate = this.state.updates.length ? this.state.updates[0].date : \"\"; \n    // UPDATES\n    var updates = this.state.updates.map((obj,i)=>{\n      return (\n        <div class=\"box\" key={i}>\n          <h3>{obj.sr}</h3>\n          <div>{obj.wins}/{obj.games}</div>\n        </div>\n      );\n    })\n\n\t\treturn (\n\t\t\t<div id=\"home\">\n\t\t\t\t<h2>Competitive tracker</h2>\n        <span class=\"faded\">Last update: { lastUpdate } { updateBtn }</span>\n        { updates }\n\t\t\t</div>\n\t\t);\n\t}\n}",
-			"file": "src/js/pages/Competitive.jsx",
-			"file_size": 1650,
-			"file_write_time": 131304184736503742,
-			"settings":
-			{
-				"buffer_size": 1597,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/routes.jsx",
-			"settings":
-			{
-				"buffer_size": 738,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/sass/main.scss",
-			"settings":
-			{
-				"buffer_size": 2169,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -69,16 +40,40 @@
 	"command_palette":
 	{
 		"height": 354.0,
-		"last_filter": "",
+		"last_filter": "ma",
 		"selected_items":
 		[
 			[
-				"conver",
-				"Indentation: Convert to Tabs"
+				"ma",
+				"Material Theme: Configuration"
+			],
+			[
+				"material",
+				"Material Theme: Configuration"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
 			],
 			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"material ",
+				"Material Theme: Activate theme"
+			],
+			[
+				"materi",
+				"Material Theme: Configuration"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"conver",
+				"Indentation: Convert to Tabs"
 			],
 			[
 				"tabs",
@@ -157,10 +152,6 @@
 				"Set Syntax: JavaScript"
 			],
 			[
-				"material",
-				"Material Theme: Info"
-			],
-			[
 				"new component",
 				"Snippet: React: wrap in a component"
 			],
@@ -225,7 +216,7 @@
 				"Package Control: Add Channel"
 			]
 		],
-		"width": 446.0
+		"width": 414.0
 	},
 	"console":
 	{
@@ -247,46 +238,45 @@
 	},
 	"expanded_folders":
 	[
-		"/C/www/React+Redux Sandbox",
-		"/C/www/React+Redux Sandbox/build",
-		"/C/www/React+Redux Sandbox/build/img",
-		"/C/www/React+Redux Sandbox/src",
-		"/C/www/React+Redux Sandbox/src/js",
-		"/C/www/React+Redux Sandbox/src/js/pages",
-		"/C/www/React+Redux Sandbox/src/sass"
+		"/C/www/React Sandbox",
+		"/C/www/React Sandbox/src",
+		"/C/www/React Sandbox/src/api",
+		"/C/www/React Sandbox/src/js",
+		"/C/www/React Sandbox/src/js/components",
+		"/C/www/React Sandbox/src/js/pages",
+		"/C/www/React Sandbox/src/sass"
 	],
 	"file_history":
 	[
-		"/C/www/React+Redux Sandbox/src/js/pages/Test.jsx",
-		"/C/www/React+Redux Sandbox/src/js/pages/Competitive.jsx",
-		"/C/www/React+Redux Sandbox/src/sass/main.scss",
-		"/C/www/React+Redux Sandbox/src/js/components/Header.jsx",
-		"/C/www/React+Redux Sandbox/src/js/pages/Home.jsx",
-		"/C/www/React+Redux Sandbox/src/js/routes.jsx",
-		"/C/www/React+Redux Sandbox/src/js/store.jsx",
-		"/C/www/React+Redux Sandbox/src/js/components/Heroes.jsx",
-		"/C/www/React+Redux Sandbox/src/js/components/Layout.jsx",
-		"/C/www/React+Redux Sandbox/src/js/GlobalState.jsx",
-		"/C/www/React+Redux Sandbox/package.json",
-		"/C/www/React+Redux Sandbox/.babelrc",
-		"/C/www/React+Redux Sandbox/src/index.html",
+		"/C/www/React Sandbox/src/api/index.js",
+		"/C/www/React Sandbox/src/js/pages/Competitive.jsx",
+		"/C/www/React Sandbox/src/sass/main.scss",
+		"/C/www/React Sandbox/src/sass/_child-of-shelter.scss",
+		"/C/www/React Sandbox/src/sass/_overattached2.scss",
+		"/C/www/React Sandbox/src/js/pages/Test.jsx",
+		"/C/www/ShelterGenCat/client/sass/main.scss",
+		"/C/www/React Sandbox/package.json",
+		"/C/www/React Sandbox/src/js/components/Layout.jsx",
+		"/C/www/React Sandbox/node_modules/ajv/package.json",
+		"/C/www/React Sandbox/src/js/pages/HeroesPage.jsx",
+		"/C/www/React Sandbox/src/js/routes.jsx",
+		"/C/www/React Sandbox/src/js/store.jsx",
+		"/C/www/React Sandbox/src/js/components/Heroes.jsx",
+		"/C/www/React Sandbox/src/js/GlobalState.jsx",
+		"/C/www/React Sandbox/webpack.config.js",
+		"/C/Users/Krauss/AppData/Roaming/Sublime Text 3/Packages/User/Terminal.sublime-settings",
+		"/C/www/React Sandbox/.babelrc",
+		"/C/www/React Sandbox/src/index.html",
+		"/C/www/React Sandbox/src/js/client.js",
+		"/C/www/React Sandbox/src/js/pages/Home.jsx",
+		"/C/www/React Sandbox/src/js/components/Header.jsx",
 		"/C/www/React Sandbox/src/js/components/MiniContainer.jsx",
 		"/C/www/React Sandbox/node_modules/array-index/test.js",
 		"/C/www/React Sandbox/readme.md",
-		"/C/www/React Sandbox/package.json",
-		"/C/www/React Sandbox/webpack.config.js",
-		"/C/www/React Sandbox/src/js/client.js",
 		"/C/www/react-map-demo/src/js/client.js",
-		"/C/www/React Sandbox/src/sass/main.scss",
-		"/C/www/React Sandbox/src/js/components/Layout.jsx",
-		"/C/www/React Sandbox/src/index.html",
-		"/C/www/React Sandbox/src/js/pages/Competitive.jsx",
-		"/C/www/React Sandbox/src/js/pages/Test.jsx",
 		"/C/www/React Sandbox/node_modules/faye-websocket/examples/client.js",
 		"/C/www/React Sandbox/src/js/test.js",
 		"/C/www/React Sandbox/build/client-bundle.js",
-		"/C/www/React Sandbox/src/js/pages/Home.jsx",
-		"/C/www/React Sandbox/src/js/routes.jsx",
 		"/C/www/React Sandbox/.eslintrc",
 		"/C/www/React Sandbox/src/client.min.js",
 		"/C/www/React Sandbox/sublime-project.sublime-project",
@@ -328,9 +318,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 136.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -338,7 +329,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"<i",
+			"games",
+			"throw",
+			"server",
+			"localhost",
+			"totalGames",
+			"totalWins",
+			"totalwins",
+			"totalGames",
+			"quit",
+			"const",
+			"end",
+			"hello",
+			"scr",
+			"name",
+			"name:",
 			"AppStore",
 			"box-color",
 			"div",
@@ -377,102 +382,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/js/pages/Competitive.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1597,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								535,
-								535
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Palenight.tmTheme",
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 180.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/js/routes.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 738,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/sass/main.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2169,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1616,
-								1616
-							],
-							[
-								1898,
-								1898
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Palenight.tmTheme",
-							"syntax": "Packages/SCSS/SCSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1800.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -533,8 +444,8 @@
 		"selected_items":
 		[
 			[
-				"rout",
-				"src\\js\\routes.jsx"
+				"web",
+				"webpack.config.js"
 			],
 			[
 				"miniconta",
@@ -583,7 +494,7 @@
 		[
 			[
 				"",
-				"C:\\www\\Neo Marquesines\\neom.sublime-project"
+				"C:\\www\\React Sandbox\\sublime-project.sublime-project"
 			]
 		],
 		"width": 380.0

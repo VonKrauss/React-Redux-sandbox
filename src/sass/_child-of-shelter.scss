@@ -1,0 +1,135 @@
+$text-color: #f2e8d1;
+$background-color: #090805;
+$accent-color: #aa7b00;
+$border-color: #2b261c;
+$box-color: #000;
+$faded-color: #7b6d50;
+
+@import url('https://fonts.googleapis.com/css?family=Catamaran');
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 50px;
+  color: $text-color;
+  background: $background-color;
+  font-family: 'Catamaran';
+  font-size: 16px;
+}
+a {
+  color: $accent-color;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: lighten($accent-color, 5%);
+  }
+}
+.page_title {
+  margin: 0;
+  margin-bottom: 10px;
+}
+#main_menu {
+  margin-bottom: 20px;
+  a {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+}
+.loader {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: url('/img/spinner.svg') no-repeat center center;
+  background-size: 100%;
+}
+h1, h2, h3 {
+  margin: 0;
+}
+h1 {
+  margin-bottom: 10px;
+}
+h2 {
+  margin-bottom: 10px;
+}
+h3 {
+  line-height: 23px;
+}
+.faded {
+  color: $faded-color;
+}
+.box {
+  padding: 15px;
+  background: $box-color;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    img {
+      border-radius: 50%;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+.col {
+  .box {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  &:last-child .box {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  &.inline {
+    width: 25%;
+  }
+}
+.inline { display: inline-block; vertical-align: top; }
+.v-middle { vertical-align: middle }
+
+button {
+  color: $border-color;
+  background: $accent-color;
+  border: 1px solid $border-color;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+.counter {
+  button {
+    width: 40px;
+  }
+}
+i {
+  &.update_btn {
+    margin-left: 5px;
+    cursor: pointer;
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background: url('/img/reload.svg') no-repeat center center;
+    background-size: 17px 17px;
+    vertical-align: middle;
+    &.loading {
+      opacity: .5;
+      cursor: default;
+      animation-name: spin;
+      animation-duration: 2000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+}
+@keyframes spin { 
+    from { 
+        transform: rotate(0deg); 
+    } to { 
+        transform: rotate(-360deg); 
+    }
+}

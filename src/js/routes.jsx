@@ -12,9 +12,9 @@ var routing = (
 	<Router history={hashHistory}>
 		<Route path="/" component={ Layout }>
 			<IndexRoute component={ Home }></IndexRoute>
-      <Route path="competitive" name="Competititve" component={ Competitive }></Route>
-			<Route path="heroes" name="Heroes" component={ HeroesPage }></Route>
-			<Route path="test" name="Test" component={ Test }></Route>
+      <Route path="competitive" name="competitive" component={ Competitive }></Route>
+			<Route path="heroes" name="heroes" component={ HeroesPage }></Route>
+			<Route path="test" name="test" component={ Test }></Route>
 		</Route>
 	</Router>
 )
