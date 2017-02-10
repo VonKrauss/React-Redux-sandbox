@@ -128,7 +128,8 @@ const updatePlayer = (res, username)=>{
                 console.log(obj.data.avatar);
                 res.send({
                   message: success,
-                  update: update
+                  update: update,
+                  player: { username: username, avatar: avatar }
                 });
                 console.log(success);
                 connection.end();

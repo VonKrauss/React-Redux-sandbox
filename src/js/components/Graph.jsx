@@ -1,9 +1,10 @@
 import React from 'react'
+import Dates from '../lib/Dates'
 
 export default class Graph extends React.Component {
 	constructor(props) {
 		super(props);
-		var widthSegment, srMin, srMax; 
+		var widthSegment, srMin, srMax, testDiv; 
 		var debug = false;
 		// debug = true;
 		// var nodes = [
@@ -32,6 +33,9 @@ export default class Graph extends React.Component {
 				}
 				srMax = Math.ceil((srMax+25)/50)*50;
 				srMin = Math.floor((srMin-25)/50)*50;
+
+				testDiv = p.createDiv().position(10,10);
+				testDiv.addClass("tooltip");
 				// console.log("min: "+srMin);
 				// console.log("max: "+srMax);
 			}
@@ -67,6 +71,7 @@ export default class Graph extends React.Component {
 				p.text(srMax, widthSegment/2+10, p.height/2+6);
 				p.text(srMin, widthSegment/2+10, p.height-10);
 				// Graph lines and dots
+				testDiv.hide();
 				for(let i=0; i<nodes.length; i++) {
 					nodes[i].x = (widthSegment*i)+widthSegment/2;
 					nodes[i].y = p.map(nodes[i].sr,srMin, srMax, p.height-20, 20);
@@ -76,12 +81,11 @@ export default class Graph extends React.Component {
 						let _from = p.color("#b90a29");
 						let _to = p.color("#194295");
 						p.stroke(p.lerpColor(_from,_to,p.map(i,0,nodes.length,0,1)));
-
 						p.line(nodes[i-1].x,nodes[i-1].y,nodes[i].x,nodes[i].y)
-						p.drawGraphPoint(nodes[i-1].x, nodes[i-1].y);
+						p.drawGraphPoint(nodes[i-1].x, nodes[i-1].y,i-1);
 					}
 					if(i==nodes.length-1) {
-						p.drawGraphPoint(nodes[i].x, nodes[i].y);
+						p.drawGraphPoint(nodes[i].x, nodes[i].y,i);
 					}
 				}
 				// Debug Text
@@ -94,7 +98,7 @@ export default class Graph extends React.Component {
 					p.text("MouseY: "+p.mouseY, 20, 80);
 				}
 			};
-			p.drawGraphPoint = (x,y)=>{
+			p.drawGraphPoint = (x,y,i)=>{
 				if((p.mouseX > x-widthSegment/2 && p.mouseX < x+widthSegment/2)&& p.mouseY > 0 && p.mouseY <= p.height){
 					// Outer red ellipse
 					p.stroke("#8b1e32");
@@ -106,11 +110,9 @@ export default class Graph extends React.Component {
 					p.strokeWeight(3);
 					p.ellipse(x,y,13,13);
 					// // Tooltip
-					// rectWidth = 100;
-					// rectHeight = 50;
-					// noStroke();
-					// rect(x-rectWidth/2,y-rectHeight-20,100,rectHeight);
-					// rect(x,y-rectHeight-20,100,rectHeight);
+					testDiv.show();
+					testDiv.position(x-50,y-84);
+					testDiv.html(`<div>${nodes[i].wins}/${nodes[i].games}</div><div><strong>${nodes[i].sr}</strong></div><div>${Dates.timeSince(Dates.dateMake(nodes[i].date))}</div>`);
 				}
 			}
 		};
@@ -123,6 +125,6 @@ export default class Graph extends React.Component {
 		this.canvas.update();
 	}
 	render() {
-		return <div ref="wrapper"></div>
+		return <div class="graph_wrapper" ref="wrapper"></div>
 	}
 }

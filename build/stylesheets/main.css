@@ -182,6 +182,35 @@ h1, h2, h3 {
 #player_graph {
   padding-top: 2px; }
 
+.graph_wrapper {
+  position: relative; }
+  .graph_wrapper .tooltip {
+    width: 100px;
+    height: 60px;
+    color: #6b717b;
+    background: #1b222e;
+    padding: 4px 8px;
+    line-height: 17px;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.27);
+    position: relative;
+    z-index: 1;
+    overflow: hidden; }
+    .graph_wrapper .tooltip::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      margin-left: -6px;
+      background: #1b222e;
+      transform: rotate(45deg);
+      z-index: 0; }
+    .graph_wrapper .tooltip strong {
+      font-weight: 500;
+      font-size: 18px;
+      color: #c3c7ce; }
+
 .inline-block {
   display: inline-block; }
 
