@@ -193,8 +193,7 @@ h1, h2, h3 {
     line-height: 17px;
     box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.27);
     position: relative;
-    z-index: 1;
-    overflow: hidden; }
+    z-index: 1; }
     .graph_wrapper .tooltip::after {
       content: "";
       position: absolute;
