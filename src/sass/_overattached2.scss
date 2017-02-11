@@ -118,45 +118,48 @@ h1,h2,h3 {
     margin-bottom: 14px;
 }
 
+.btn {
+  display: block;
+  background: $box-color;
+  padding: 5px 9px;
+  width: 130px;
+  text-align: left;
+  border: 0px;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  margin: 0 auto;
+  position: relative;
+  &:hover {
+    color: lighten($text-color, 10%);
+    background-color: lighten($box-color, 2%);
+  }
+  &:focus {
+    outline: none;
+  }
+}
 .update-btn {
-    display: block;
+  @extend .btn;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background: url('/img/reload.svg');
+    top: 7px;
+    right: 7px;
+  }
+  &.loading {
+    cursor: default;
+    color: $faded-color;
     background: $box-color;
-    padding: 5px 9px;
-    width: 130px;
-    text-align: left;
-    border: 0px;
-    color: inherit;
-    font-family: inherit;
-    cursor: pointer;
-    margin: 0 auto;
-    position: relative;
-    &:hover {
-      color: lighten($text-color, 10%);
-      background-color: lighten($box-color, 2%);
-    }
-    &:focus {
-      outline: none;
-    }
     &::after {
-      content: "";
-      position: absolute;
-      width: 13px;
-      height: 13px;
-      background: url('/img/reload.svg');
-      top: 7px;
-      right: 7px;
+      animation-name: spin;
+      animation-duration: 1100ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
     }
-    &.loading {
-      cursor: default;
-      color: $faded-color;
-      background: $box-color;
-      &::after {
-        animation-name: spin;
-        animation-duration: 1100ms;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-      }
-    }
+  }
 }
 
 @keyframes spin { 

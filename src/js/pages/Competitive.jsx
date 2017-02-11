@@ -125,7 +125,7 @@ export default class Competitive extends React.Component {
 					</div>
 					<Toaster toasts={this.state.toasts} />
 					<div id="debug">
-						<button class="update-btn" onClick={ ()=>{ this.insertToast('Test') } }>Insert toast</button>
+						<button class="btn" onClick={ ()=>{ this.insertToast('Test') } }>Insert toast</button>
 					{
 							// Debug items
 							// <button class="update-btn" onClick={ ()=>{ this.updateSr() } }>Animate Sr</button>
