@@ -253,3 +253,15 @@ h1,h2,h3 {
     }
   }
 }
+
+#toaster {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 15%;
+  article {
+    padding: 10px;
+    background: $box-color;
+  }
+}

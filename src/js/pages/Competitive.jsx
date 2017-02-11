@@ -3,6 +3,8 @@ import Heroes from '../components/Heroes'
 import PlayerAvatar from '../components/PlayerAvatar'
 import SrCounter from '../components/SrCounter'
 import Graph from '../components/Graph'
+import Toaster from '../components/Toaster'
+
 import Dates from '../lib/Dates'
 /*
 	- get updates from db
@@ -20,7 +22,10 @@ export default class Competitive extends React.Component {
 			updates: [],
 			limit: 10,
 			player: {},
-			loading: true
+			loading: true,
+			toasts: [
+				{ type: "info", message: "This is a test toast" }
+			]
 		};
 		this.user = 'necKros-21595';
 		$.get('http://localhost:5959/games/'+this.user+'?limit='+this.state.limit,(data)=>{
@@ -32,6 +37,27 @@ export default class Competitive extends React.Component {
 	toggleLoading() {
 		this.setState((prevState)=>{
 			return {...prevState, loading: !prevState.loading};
+		})
+	}
+	insertToast(message,type) {
+		if(!type) type = 'info';
+		this.setState((prevState)=>{
+			var toasts = prevState.toasts;
+			toasts.push({
+				type,
+				message
+			});
+			var t = setTimeout(this.popToast.bind(this),3000);
+			console.log(toasts);
+			return {...prevState, toasts: toasts}
+		})
+	}
+	popToast() {
+		this.setState((prevState)=>{
+			var toasts = prevState.toasts;
+			toasts.shift();
+			console.log(toasts);
+			return {...prevState, toasts}
 		})
 	}
 	update() {
@@ -97,7 +123,9 @@ export default class Competitive extends React.Component {
 					<div id="player_graph">
 						<Graph nodes={ this.state.updates }/>
 					</div>
+					<Toaster toasts={this.state.toasts} />
 					<div id="debug">
+						<button class="update-btn" onClick={ ()=>{ this.insertToast('Test') } }>Insert toast</button>
 					{
 							// Debug items
 							// <button class="update-btn" onClick={ ()=>{ this.updateSr() } }>Animate Sr</button>

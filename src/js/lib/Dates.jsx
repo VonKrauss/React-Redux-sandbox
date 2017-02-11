@@ -14,8 +14,8 @@ function timeSince(date) {
 	interval = Math.floor(seconds / 3600);
 	if (interval > 1) { return interval + " hours ago"; }
 	interval = Math.floor(seconds / 60);
-	if (interval > 1) { return interval + " minutes ago"; }
-	return "Moments ago";
+	if (interval > 1) { return interval + " min. ago"; }
+	return "Just now";
 }
 
 function daysAgo(date) {
