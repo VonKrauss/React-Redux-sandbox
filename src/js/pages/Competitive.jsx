@@ -16,9 +16,11 @@ import Dates from '../lib/Dates'
 
 export default class Competitive extends React.Component {
 	
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
+		// if(this.params)
 		this.state = {
+			status: "INITIAL",
 			updates: [],
 			limit: 10,
 			player: {},
@@ -27,37 +29,28 @@ export default class Competitive extends React.Component {
 				{ type: "info", message: "This is a test toast" }
 			]
 		};
-		this.user = 'necKros-21595';
+		this.user = this.props.params.player;
 		$.get('http://localhost:5959/games/'+this.user+'?limit='+this.state.limit,(data)=>{
-			this.setState((prevState)=>{
-				return {...prevState, updates: data.updates.reverse(), player: data.player, loading: false};
-			});
+			console.log(data);
+			if(data.player == null) {
+				this.setState((prevState)=>{
+					return {...prevState, status: "CREATE_PLAYER"};
+				});
+			} else {
+				this.setState((prevState)=>{
+					return {...prevState, updates: data.updates.reverse(), player: data.player, loading: false};
+				});
+			}
 		});
 	}
+
+	componentWillUpdate() {
+		console.log("Component will update");
+	}
+
 	toggleLoading() {
 		this.setState((prevState)=>{
 			return {...prevState, loading: !prevState.loading};
-		})
-	}
-	insertToast(message,type) {
-		if(!type) type = 'info';
-		this.setState((prevState)=>{
-			var toasts = prevState.toasts;
-			toasts.push({
-				type,
-				message
-			});
-			var t = setTimeout(this.popToast.bind(this),3000);
-			console.log(toasts);
-			return {...prevState, toasts: toasts}
-		})
-	}
-	popToast() {
-		this.setState((prevState)=>{
-			var toasts = prevState.toasts;
-			toasts.shift();
-			console.log(toasts);
-			return {...prevState, toasts}
 		})
 	}
 	update() {
@@ -88,6 +81,14 @@ export default class Competitive extends React.Component {
 		});
 	}
 	render() {
+		if(this.state.status == "CREATE_PLAYER") return(
+			<section id="competitive">
+				<div class="container centered">
+					<div class="loader block"></div>
+					<h2 class="thin">Looking for player <strong class="accent">{this.user}</strong>...</h2>
+				</div>
+			</section>
+		);
 		// console.info(this.state);
 		// UPDATE BTN
 		var loading = this.state.loading ? " loading" : "";
@@ -109,7 +110,7 @@ export default class Competitive extends React.Component {
 					<article id="player_header">
 						<PlayerAvatar img={ this.state.player.avatar }/>
 						<div class="player_name">
-							<strong>{ "necKros" }</strong>
+							<strong>{ this.state.player.username }</strong>
 							<span class="faded">{ "#21595" }</span>
 						</div>
 						<SrCounter sr={ this.state.updates[this.state.updates.length-1].sr }/>
@@ -125,7 +126,7 @@ export default class Competitive extends React.Component {
 					</div>
 					<Toaster toasts={this.state.toasts} />
 					<div id="debug">
-						<button class="btn" onClick={ ()=>{ this.insertToast('Test') } }>Insert toast</button>
+						<button class="btn" onClick={ ()=>{ Toaster.prototype.insertToast('Test') } }>Insert toast</button>
 					{
 							// Debug items
 							// <button class="update-btn" onClick={ ()=>{ this.updateSr() } }>Animate Sr</button>

@@ -34,8 +34,45 @@ h1,h2,h3 {
   margin: 0;
 }
 
+.block {
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  background: url('/img/reload.svg');
+  background-size: contain;
+  animation-name: spin;
+  animation-duration: 1100ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  display: inline-block;
+}
+
+.thin {
+  font-weight: 300;
+}
+
+.accent {
+  color: $accent-color;
+}
+
 .box {
   background: $box-color;
+}
+
+.container {
+  @extend .block;
+  padding: 40px;
+}
+
+.centered {
+  text-align: center;
+  margin: 0 auto;
 }
 
 #app, #page, #main_container {

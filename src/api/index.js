@@ -56,7 +56,7 @@ const createPlayer = (res, username)=>{
             connection.end();
             return;
           }
-          res.send({ message : "User "+username+" successfully created"});
+          res.send({ message : "User "+username+" successfully created", player: user, updates: []});
           connection.end();
           return;
         });
@@ -173,10 +173,16 @@ const getUpdates = (res, username, limit)=>{
         connection.end();
         return;
       }
+      var player;
+      if(result2.length) {
+        player = result2[0];
+      }else {
+        player = null;
+      }
       res.send(
         { 
           updates: result,
-          player: result2[0]
+          player: player
         }
       );
       connection.end();

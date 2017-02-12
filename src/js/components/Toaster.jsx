@@ -10,6 +10,27 @@ export default class Toaster extends React.Component {
 	componentDidMount() {
 		$('#toaster').detach().insertAfter('#page');
 	}
+	insertToast(message,type) {
+		if(!type) type = 'info';
+		this.setState((prevState)=>{
+			var toasts = prevState.toasts;
+			toasts.push({
+				type,
+				message
+			});
+			var t = setTimeout(this.popToast.bind(this),3000);
+			console.log(toasts);
+			return {...prevState, toasts: toasts}
+		})
+	}
+	popToast() {
+		this.setState((prevState)=>{
+			var toasts = prevState.toasts;
+			toasts.shift();
+			console.log(toasts);
+			return {...prevState, toasts}
+		})
+	}
 	render() {
 		return (
 			<section id="toaster">
