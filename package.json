@@ -7,6 +7,8 @@
     "babel": "^6.5.2",
     "babel-plugin-react-html-attrs": "^2.0.0",
     "bootstrap-sass": "^3.3.7",
+    "cheerio": "0.22.0",
+    "express": "4.14.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "fs": "0.0.1-security",
     "history": "^4.4.0",
@@ -26,6 +28,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
+    "request": "2.79.0",
     "restify": "4.3.0",
     "scss": "0.2.4",
     "tls": "0.0.1",
@@ -67,7 +70,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --colors --content-base src/ --inline --hot --open",
-    "api": "node src/api/index.js"
+    "api": "node src/api2/index.js"
   },
   "repository": {
     "type": "git",

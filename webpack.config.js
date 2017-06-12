@@ -51,4 +51,8 @@ module.exports = {
 	resolve: {
 		extensions: ['', '.js', '.jsx'],
 	},
+	devServer: {
+    inline:true,
+    port: 80
+  },
 };

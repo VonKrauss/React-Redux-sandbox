@@ -40,7 +40,7 @@ class SrCounter extends Component {
 	}
 	render() {
 		return (
-			<div class={"sr-counter "+this.getSrTier()}>{this.sr}</div>
+			<div class={"noselect sr-counter "+this.getSrTier()}>{this.sr}</div>
 			);
 	}
 }

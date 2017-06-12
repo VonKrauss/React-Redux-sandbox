@@ -5,6 +5,7 @@ export default class Graph extends React.Component {
 	constructor(props) {
 		super(props);
 		var widthSegment, srMin, srMax, testDiv; 
+		var i = 0;
 		var debug = false;
 		// debug = true;
 		// var nodes = [
@@ -44,11 +45,14 @@ export default class Graph extends React.Component {
 				p.degrees();
 				p.update();
 			};
+			p.mouseMoved = ()=>{
+				p.loop();
+			}
 			p.draw = ()=>{
+				i++;
 				p.clear();
 				p.background(p.color(19, 23, 31, 128));
 				p.ellipseMode(p.CENTER);
-				p.beginShape();
 				// Graph bars
 				if(nodes.length<30) {
 					for(let i=0; i<nodes.length; i++) {
@@ -58,17 +62,18 @@ export default class Graph extends React.Component {
 					}
 				}
 				// Graph shape
+				p.beginShape();
+				p.fill(p.color(59,79,99,16));
+				p.noStroke();
 				for(let i=0; i<nodes.length; i++) {
-					p.fill(p.color(59,79,99,16));
-					p.noStroke();
 					p.vertex(nodes[i].x,nodes[i].y);
 				}
 				p.vertex(nodes[nodes.length-1].x, p.height);
 				p.vertex(nodes[0].x,p.height)
 				p.endShape();
-				p.fill("#788292");
+				p.fill("#414752");
 				p.text(srMax, widthSegment/2+10, 20);
-				p.text(srMax, widthSegment/2+10, p.height/2+6);
+				p.text(Math.round((srMax+srMin)/2), widthSegment/2+10, p.height/2+6);
 				p.text(srMin, widthSegment/2+10, p.height-10);
 				// Graph lines and dots
 				testDiv.hide();
@@ -96,7 +101,9 @@ export default class Graph extends React.Component {
 					p.text("MinSr: "+srMin, 20, 40);
 					p.text("MaxSr: "+srMax, 20, 60);
 					p.text("MouseY: "+p.mouseY, 20, 80);
+					p.text("i: "+i, 20, 100);
 				}
+				if(i>1) p.noLoop();
 			};
 			p.drawGraphPoint = (x,y,i)=>{
 				if((p.mouseX > x-widthSegment/2 && p.mouseX < x+widthSegment/2)&& p.mouseY > 0 && p.mouseY <= p.height){
@@ -112,7 +119,17 @@ export default class Graph extends React.Component {
 					// // Tooltip
 					testDiv.show();
 					testDiv.position(x-50,y-84);
-					testDiv.html(`<div>${nodes[i].wins}/${nodes[i].games}</div><div><strong>${nodes[i].sr}</strong></div><div>${Dates.timeSince(Dates.dateMake(nodes[i].date))}</div>`);
+					testDiv.html(`
+						<div>
+							<div>${nodes[i].wins}/${nodes[i].games}</div>
+							<div>
+								<strong>${nodes[i].sr}</strong>
+							</div>
+							<div target="More info">
+								${Dates.timeSince(Dates.dateMake(nodes[i].date))}
+							</div>
+						</div>
+					`);
 				}
 			}
 		};

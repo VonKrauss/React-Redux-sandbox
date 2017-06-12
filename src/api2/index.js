@@ -1,3 +1,11 @@
+//////////////////////////////////////
+var express = require('express');
+var fs = require('fs');
+var request = require('request');
+var cheerio = require('cheerio');
+var app     = express();
+//////////////////////////////////////
+
 ////////////////////////
 // MySQL
 ////////////////////////
@@ -24,6 +32,7 @@ const createPlayer = (res, username)=>{
     }
     if(result.length != 0) {
         res.send({ error : {code: 200, message: "This user already exists"}});
+
         connection.end();
         return;
     }

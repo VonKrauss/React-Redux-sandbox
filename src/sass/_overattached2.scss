@@ -9,303 +9,349 @@ $box-color: #13171f;
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,900,900i');
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.noselect {
+	cursor: default;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 html, body {
-  height: 100%;
+	height: 100%;
 }
 
 body {
-  margin: 0;
-  background: $background-color url('/img/background-dva.jpg') no-repeat center center;
-  background-size: cover;
-  color: $text-color;
-  font-family: 'Roboto';
-  font-size: 14px;
-  font-weight: 300;
+	margin: 0;
+	background: $background-color url('/img/background-dva.jpg') no-repeat fixed center center;
+	background-size: cover;
+	color: $text-color;
+	font-family: 'Roboto';
+	font-size: 14px;
+	font-weight: 300;
 }
 
 a {
-  color: $accent-color;
+	color: $accent-color;
 }
 
 h1,h2,h3 {
-  margin: 0;
+	margin: 0;
 }
 
+h2 {
+	margin-bottom: 10px;
+}
+
+h3 {
+	margin-bottom: 10px;
+}
 .block {
-  margin-bottom: 20px;
-  &:last-child {
-    margin-bottom: 0;
-  }
+	margin-bottom: 20px;
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 .loader {
-  width: 50px;
-  height: 50px;
-  background: url('/img/reload.svg');
-  background-size: contain;
-  animation-name: spin;
-  animation-duration: 1100ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  display: inline-block;
+	width: 50px;
+	height: 50px;
+	background: url('/img/reload.svg');
+	background-size: contain;
+	animation-name: spin;
+	animation-duration: 1100ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	display: inline-block;
 }
 
 .thin {
-  font-weight: 300;
+	font-weight: 300;
 }
 
 .accent {
-  color: $accent-color;
+	color: $accent-color;
 }
 
 .box {
-  background: $box-color;
+	background: $box-color;
 }
 
 .container {
-  @extend .block;
-  padding: 40px;
+	@extend .block;
+	padding: 40px;
 }
 
 .centered {
-  text-align: center;
-  margin: 0 auto;
+	text-align: center;
+	margin: 0 auto;
 }
 
 #app, #page, #main_container {
-  // height: 100%;
+	// height: 100%;
 }
 
 #top_header {
-  width: 675px;
-  height: 70px;
-  margin: 0 auto;
-  background: $box-color;
-  position: relative;
-  z-index: 1;
+	width: 675px;
+	height: 70px;
+	margin: 0 auto;
+	background: $box-color;
+	position: relative;
+	z-index: 1;
 }
 
 #main_container {
-  padding-top: 70px;
-  width: 640px;
-  background: #0b0e13 url('/img/background-main_container.png');
-  margin: 0 auto;
-  position: relative;
-  top: -70px;
-  z-index: 0;
-  padding-bottom: 40px;
+	padding-top: 70px;
+	width: 640px;
+	background: #0b0e13 url('/img/background-main_container.png');
+	margin: 0 auto;
+	position: relative;
+	top: -70px;
+	z-index: 0;
+	padding-bottom: 40px;
 }
 
 #page_logo {
-  width: 100px;
-  height: 48px;
-  background: url('/img/header-logo.png') no-repeat center left;
-  margin-top: 12px;
-  margin-left: 30px;
-  margin-right: 45px;
-  background-size: 100px;
+	width: 100px;
+	height: 48px;
+	background: url('/img/header-logo.png') no-repeat center left;
+	margin-top: 12px;
+	margin-left: 30px;
+	margin-right: 45px;
+	background-size: 100px;
 }
 
 #main_menu {
-  vertical-align: top;
-  margin-top: 26px;
-  li a {
-    font-size: 17px;
-    font-weight: 300;
-    color: $text-color;
-    text-decoration: none;
-    letter-spacing: -.5px;
-    &.active {
-      color: $accent-color;
-      text-shadow: 0 0 6px $accent-color;
-    }
-  }
+	vertical-align: top;
+	margin-top: 26px;
+	li a {
+		font-size: 17px;
+		font-weight: 300;
+		color: $text-color;
+		text-decoration: none;
+		letter-spacing: -.5px;
+		&.active {
+			color: $accent-color;
+			text-shadow: 0 0 6px $accent-color;
+		}
+	}
 }
 #player_header {
-  text-align: center;
-  padding: 20px;
+	text-align: center;
+	padding: 20px;
 }
 .player-avatar {
-  display: block;
-  width:  84px;
-  height: 84px;
-  border: 2px solid #000;
-  border-radius: 50%;
-  background: $box-color no-repeat center center;
-  background-size: cover;
-  margin: 0 auto;
-  margin-bottom: 14px;
+	display: block;
+	width:  84px;
+	height: 84px;
+	border: 2px solid #000;
+	border-radius: 50%;
+	background: $box-color no-repeat center center;
+	background-size: cover;
+	margin: 0 auto;
+	margin-bottom: 14px;
 }
 
 .player_name {
-  font-size: 16px;
-  color: $text-clear;
-  strong { font-weight: 600 } 
-  .faded { font-weight: 400; color: $text-color }
-}
-
-.sr-counter {
-    font-size: 64px;
-    font-weight: 100;
-    color: #eee;
-    text-shadow: 12px 12px 0 #000, 0 0 20px #fff;
-    margin-bottom: 14px;
+	font-size: 16px;
+	color: $text-clear;
+	strong { font-weight: 600 } 
+	.faded { font-weight: 400; color: $text-color }
+	width: 100%;
+	display: table;
+	.column {
+		display: table-cell;
+	}
+	.middle {
+		width: 150px;
+		text-align: center;
+	}
+	.line {
+		border-bottom: 2px solid $box-color;
+		position: relative;
+		bottom: 8px;
+	}
 }
 
 .btn {
-  display: block;
-  background: $box-color;
-  padding: 5px 9px;
-  width: 130px;
-  text-align: left;
-  border: 0px;
-  color: inherit;
-  font-family: inherit;
-  cursor: pointer;
-  margin: 0 auto;
-  position: relative;
-  &:hover {
-    color: lighten($text-color, 10%);
-    background-color: lighten($box-color, 2%);
-  }
-  &:focus {
-    outline: none;
-  }
+	@extend .noselect;
+	display: block;
+	background: $box-color;
+	padding: 5px 9px;
+	width: 130px;
+	text-align: left;
+	border: 0px;
+	color: inherit;
+	font-family: inherit;
+	cursor: pointer;
+	margin: 0 auto;
+	position: relative;
+	&:hover {
+		color: lighten($text-color, 10%);
+		background-color: lighten($box-color, 2%);
+	}
+	&:focus {
+		outline: none;
+	}
 }
 .update-btn {
-  @extend .btn;
-  &::after {
-    content: "";
-    position: absolute;
-    width: 13px;
-    height: 13px;
-    background: url('/img/reload.svg');
-    top: 7px;
-    right: 7px;
-  }
-  &.loading {
-    cursor: default;
-    color: $faded-color;
-    background: $box-color;
-    &::after {
-      animation-name: spin;
-      animation-duration: 1100ms;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-    }
-  }
+	@extend .btn;
+	&::after {
+		content: "";
+		position: absolute;
+		width: 13px;
+		height: 13px;
+		background: url('/img/reload.svg');
+		top: 7px;
+		right: 7px;
+	}
+	&.loading {
+		cursor: default;
+		color: $faded-color;
+		background: $box-color;
+		&::after {
+			animation-name: spin;
+			animation-duration: 1100ms;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+		}
+	}
 }
 
 @keyframes spin { 
-    from { 
-        transform: rotate(0deg); 
-    } to { 
-        transform: rotate(360deg); 
-    }
+		from { 
+				transform: rotate(0deg); 
+		} to { 
+				transform: rotate(360deg); 
+		}
 }
 
 #player_summary {
-  overflow: auto;
-  .col {
-    width: 33.333%;
-    float: left;
-    padding-right: 2px;
-    &:last-child {
-      padding-right: 0;
-    }
-    .box { padding: 7px 12px }
-  }
+	overflow: auto;
+	.col {
+		width: 33.333%;
+		float: left;
+		padding-right: 2px;
+		&:last-child {
+			padding-right: 0;
+		}
+		.box { padding: 7px 12px }
+	}
 }
 
 #player_updates {
-  padding: 5px;
-  &>div {
-    display: inline-block;
-    padding: 10px;
-    margin: 5px;
-  }
+	padding: 5px;
+	&>div {
+		display: inline-block;
+		padding: 10px;
+		margin: 5px;
+	}
 }
-
+$drop-shadow: 12px 12px 0 #000;
 .sr-counter {
-  &.bronze {
-    color: #934832;
-  }
-  &.silver {
-    color: #868f90;
-  }
-  &.gold {
-    color: #de9021;
-    text-shadow: 0 0 10px transparentize(#de9021, .18);
-  }
-  &.platinum {
-    color: #dcdcdc;
-    text-shadow: 0 0 10px transparentize(#fff, .18);
-  }
-  &.diamond {
-    color: #53ddff;
-    text-shadow: 0 0 10px transparentize(#fff, .18);
-  }
-  &.master {
-    color: #ffc30e;
-    text-shadow: 0 0 10px transparentize(#fff, .18);
-  }
-  &.grandmaster {
-    color: #ffdd74;
-    text-shadow: 0 0 10px transparentize(#fff, .18);
-    background: url('/img/grandmaster-glow.png') no-repeat center center;
-  }
+	font-size: 64px;
+	font-weight: 100;
+	color: #eee;
+	text-shadow: $drop-shadow;
+	margin-bottom: 14px;
+	&.bronze {
+		color: #934832;
+	}
+	&.silver {
+		color: #868f90;
+	}
+	&.gold {
+		color: #de9021;
+		text-shadow: $drop-shadow, 0 0 10px transparentize(#de9021, .18);
+	}
+	&.platinum {
+		color: #dcdcdc;
+		text-shadow: $drop-shadow, 0 0 10px transparentize(#fff, .18);
+	}
+	&.diamond {
+		color: #53ddff;
+		text-shadow: $drop-shadow, 0 0 10px transparentize(#fff, .18);
+	}
+	&.master {
+		color: #ffc30e;
+		text-shadow: $drop-shadow, 0 0 10px transparentize(#fff, .18);
+	}
+	&.grandmaster {
+		color: #ffdd74;
+		text-shadow: $drop-shadow, 0 0 10px transparentize(#fff, .18);
+		background: url('/img/grandmaster-glow.png') no-repeat center center;
+	}
 }
 #player_graph {
-  padding-top: 2px;
+	@extend .noselect;
+	padding-top: 2px;
 }
 
 .graph_wrapper {
-  position: relative;
-  .tooltip {
-    width: 100px;
-    height: 60px;
-    color: #6b717b;
-    background: #1b222e;
-    padding: 4px 8px;
-    line-height: 17px;
-    box-shadow: 4px 4px 0 rgba(0,0,0,.27);
-    position: relative;
-    z-index: 1;
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -6px;
-      left: 50%;
-      width: 12px;
-      height: 12px;
-      margin-left: -6px;
-      background: #1b222e;
-      transform: rotate(45deg);
-      z-index: 0;
-    }
-    strong {
-      font-weight: 500;
-      font-size: 18px;
-      color: $text-clear
-    }
-  }
+	position: relative;
+	.tooltip {
+		width: 100px;
+		height: 60px;
+		color: #6b717b;
+		background: #1b222e;
+		padding: 4px 8px;
+		line-height: 17px;
+		box-shadow: 4px 4px 0 rgba(0,0,0,.27);
+		position: relative;
+		z-index: 1;
+		cursor: default;
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: -6px;
+			left: 50%;
+			width: 12px;
+			height: 12px;
+			margin-left: -6px;
+			background: #1b222e;
+			transform: rotate(45deg);
+			z-index: 0;
+		}
+		strong {
+			font-weight: 500;
+			font-size: 18px;
+			color: $text-clear
+		}
+	}
 }
 
 #toaster {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 40px 15%;
-  article {
-    padding: 10px;
-    background: $box-color;
-    margin-bottom: 20px;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 40px 15%;
+	article {
+		padding: 10px;
+		background: $box-color;
+		margin-bottom: 20px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+/* INPUT */
+
+input[type="text"] {
+		padding: 4px 8px;
+		font: inherit;
+		background: #0b0e13;
+		color: #515d73;
+		border: none;
+		border-radius: 3px;
+		border: 1px solid #191d25;
+		&.big {
+			padding: 10px 15px;
+			font-size: 22px;
+			border-width: 2px;
+		}
 }
