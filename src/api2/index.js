@@ -17,6 +17,29 @@ const config = {
   password: 'Ti56SA',
   database: 'overattached'
 }
+
+const getPlayerProfile = (username, callback)=>{
+  var url = 'http://playoverwatch.com/en-us/career/pc/us/'+username;
+  console.log('Querying OW Stats Page...');
+  request(url, function(error, response, html){
+    if(!error){
+      var $ = cheerio.load(html);
+
+      var games, wins, sr;
+      var obj = { username, games, wins, sr };
+
+      var rows = $("#competitive .card-stat-block tr");
+
+      obj.sr = $(".u-align-center.h6").first().text();
+      obj.games = rows.eq(46).find("td:last-child").text();
+      obj.wins = rows.eq(47).find("td:last-child").text();
+    } else {
+      console.log('ERROR - The request could not be completed.')
+    }
+    callback(obj);
+  });
+}
+
 /*
   CREATE PLAYER
 */
@@ -36,55 +59,69 @@ const createPlayer = (res, username)=>{
         connection.end();
         return;
     }
-    // CHECK IF USER EXISTS IN OW API
-    var client = restify.createJsonClient({
-      url: 'https://api.lootbox.eu',
-      version: '*'
-    });
-    console.log("--Calling OW Api...");
-    var count = setInterval(()=>{ console.log("...")},3000);
-    client.get('/pc/eu/'+username+'/profile', function(err, req, res2, obj) {
-      clearInterval(count);
-      console.log("--Data received.");
-      if(obj) {
-        if(obj.statusCode == 404) {
-          res.send({ error : {code: 404, message: "This battletag doesn't exist. Remember battletags are case sensitive."}});
-          connection.end();
-          return;
-        }
-        // INSERT USER
-        var user = {
-          username: username,
-          games: obj.data.games.competitive.played,
-          wins: obj.data.games.competitive.wins,
-          avatar: obj.data.avatar,
-        }
-        var update = {
-          username: username,
-          games: user.games,
-          wins: user.wins,
-          sr: obj.data.competitive.rank,
-          date: Math.ceil(+ new Date()/1000) // unix timestamp (seconds)
-        }
-        var query = connection.query('insert into updates set ?', update, (err,result)=>{
-          if(err) {
-            console.error(err);
-            connection.end();
-            return;
-          }
-        });
-        query = connection.query('insert into users set ?', user, (err, result)=>{
-          if(err) {
-            console.error(err);
-            connection.end();
-            return;
-          }
-          res.send({ message : "User "+username+" successfully created", player: user, updates: [update]});
-          connection.end();
-          return;
-        });
+    // CHECK IF USER EXISTS IN OW STATS PAGE
+    getPlayerProfile(username, obj => {
+      console.log("User:", obj);
+      if(obj.games == '') {
+        res.send({ error : {code: 404, message: "Data for this player could not be found"}});
+        connection.end();
+        return;
+      } else {
+        res.send({ message : {code: 200, message: "Ok..."}});
+        connection.end();
+        return;
       }
     });
+
+    // // CHECK IF USER EXISTS IN OW API
+    // var client = restify.createJsonClient({
+    //   url: 'https://api.lootbox.eu',
+    //   version: '*'
+    // });
+    // console.log("--Calling OW Api...");
+    // var count = setInterval(()=>{ console.log("...")},3000);
+    // client.get('/pc/eu/'+username+'/profile', function(err, req, res2, obj) {
+    //   clearInterval(count);
+    //   console.log("--Data received.");
+    //   if(obj) {
+    //     if(obj.statusCode == 404) {
+    //       res.send({ error : {code: 404, message: "This battletag doesn't exist. Remember battletags are case sensitive."}});
+    //       connection.end();
+    //       return;
+    //     }
+    //     // INSERT USER
+    //     var user = {
+    //       username: username,
+    //       games: obj.data.games.competitive.played,
+    //       wins: obj.data.games.competitive.wins,
+    //       avatar: obj.data.avatar,
+    //     }
+    //     var update = {
+    //       username: username,
+    //       games: user.games,
+    //       wins: user.wins,
+    //       sr: obj.data.competitive.rank,
+    //       date: Math.ceil(+ new Date()/1000) // unix timestamp (seconds)
+    //     }
+    //     var query = connection.query('insert into updates set ?', update, (err,result)=>{
+    //       if(err) {
+    //         console.error(err);
+    //         connection.end();
+    //         return;
+    //       }
+    //     });
+    //     query = connection.query('insert into users set ?', user, (err, result)=>{
+    //       if(err) {
+    //         console.error(err);
+    //         connection.end();
+    //         return;
+    //       }
+    //       res.send({ message : "User "+username+" successfully created", player: user, updates: [update]});
+    //       connection.end();
+    //       return;
+    //     });
+    //   }
+    // });
   });
 }
 /*
@@ -219,7 +256,7 @@ const getUpdates = (res, username, limit)=>{
 var restify = require('restify');
 var server = restify.createServer({
   name: 'Overattached Api',
-  version: '1.0.0'
+  version: '1.1.0'
 });
 server.use(restify.acceptParser(server.acceptable));
 server.use(restify.queryParser());

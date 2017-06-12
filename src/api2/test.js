@@ -27,14 +27,15 @@ const getPlayerProfile = (username)=>{
 		// fs.writeFile('output.html', html, function(err){
 		// 	console.log('File successfully written!');
 		// })
-	})
+	});
 }
 
 
 // getPlayerProfile('necKros-21595');
 
+console.log('Testing at 5959\n-----------------------');
 
-console.log('Testing 8081\n-----------------------');
+console.log(getPlayerProfile('necKros-21595'));
 
 ////////////////////////
 // RESTIFY
