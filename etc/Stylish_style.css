@@ -1,0 +1,25 @@
+@-moz-document url-prefix("http://localhost:5959") {
+body {
+     background: #292d3e;
+}
+#formattedJson {
+	color: #878eb9;
+	font-size: 16px;
+	font-family: 'Consolas';
+}
+#formattedJson .k, #formattedJson .s {
+	color: #c3e88d;
+}
+#formattedJson .n {
+	color: #f78c6c;
+}
+#formattedJson .k {
+	color: #c3e88d;
+}
+#formattedJson .blockInner {
+	border-color: #3c415c;	
+}
+#formattedJson .e {
+	cursor: pointer;
+}
+}
